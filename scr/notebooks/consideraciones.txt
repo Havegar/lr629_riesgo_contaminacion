@@ -1,0 +1,21 @@
+Se recomienda usar en esta ejecucion del proyecto, la siguiente configuracionde Apache Spark:
+
+spark = SparkSession.builder \
+  .appName("Test")  \
+  .config("spark.kerberos.access.hadoopFileSystems","abfs://data@datalakesii.dfs.core.windows.net/") \
+  .config("spark.executor.memory", "16g") \
+  .config("spark.driver.memory", "12g")\
+  .config("spark.executor.cores", "2") \
+  .config("spark.driver.maxResultSize", "12g") \
+  .getOrCreate()
+warnings.filterwarnings('ignore', category=DeprecationWarning)
+sc=spark.sparkContext
+sc.setLogLevel ('ERROR')
+spark.conf.set("spark.sql.parquet.int96RebaseModeInRead", "CORRECTED")
+spark.conf.set("spark.sql.parquet.enableVectorizedReader","false")
+spark.conf.set("spark.sql.parquet.int96RebaseModeInRead", "CORRECTED")
+spark.conf.set("spark.sql.parquet.int96RebaseModeInWrite", "CORRECTED")
+spark.conf.set("spark.sql.parquet.datetimeRebaseModeInRead", "CORRECTED")
+spark.conf.set("spark.sql.parquet.datetimeRebaseModeInWrite", "CORRECTED")
+
+Caso contrario, si se caen los recursos, volver a la version anterior

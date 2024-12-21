@@ -1,0 +1,1 @@
+Datos procesados, que serán usados para el modelo. En este caso, tenemos tanto datos procesados de altertas para indicar las entidades contaminadas asi como los datos de fuerza debido al procentaje de iva, como datos de fuerza asociados a la fraccion de documentos e iva realizados bajo un representante legal con alerta.
